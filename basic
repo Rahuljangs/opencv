@@ -1,0 +1,31 @@
+import cv2
+
+//using a image
+img =cv2.imread("image path")            // creating img variable 
+cv2.imshow("Output",img)                 //displaying image
+cv2.waitKey(5000)                        //function used to delay in mili seconds
+
+
+
+
+
+//using a video
+cap=cv2.VideoCapture("video path")
+while 1:                                   
+  img=cap.read()                         //taking frames from the video  
+  cv2.imshow("video",img)                //displaying video as frames
+  if cv2.waitKey(1) & 0xFF=ord('q'):     //displaying untill the video ends or pressed 'q' on keyboard  
+     break
+     
+     
+     
+     
+// using webcam 
+cap =cv2.VideoCapture(0)                  //taking the default webcam
+cap.set(3,640)                            // setting width to 640 picels
+cap.set(4,480)                            // setting height to 480 pixels
+while True:
+    success,img=cap.read()
+    cv2.imshow("video",img)
+    if cv2.waitKey(1) & 0xFF==ord('q'):
+        break     
