@@ -1,0 +1,18 @@
+import cv2
+import numpy as np
+
+img = cv2.imread("path")                                                               //reading image
+
+height=img.shape[1]              
+width=img.shape[0]
+
+points1=np.float32([  [10,10],[100,200],[300,400],[500,700]  ])                        //defining the points of the image to be wrapped 
+points2=np.float32([  [0,0],[width,0],[height,0],[width,heigh]  ])                     //defening he position of the wrapped points 
+
+matrix=cv2.getPerspectiveTransform(points1,points2)                                    //creating a matrix 
+
+wrappedimage = cv2.wrapPerspective(img,matrix,(width,height))                          //wrapped image
+
+cv2.imshow("initial image",img)
+cv2.imshow("wrapped image",wrappedimg)
+cv2.wait(0)
