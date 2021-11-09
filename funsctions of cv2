@@ -1,3 +1,28 @@
 img=cv2.imread("img path")
 imggray=cv2.cvtColor(img,COLOR_BGR2GRAY)
 cvt.imshow("gray scale ",imggray)                       //grayscale 
+
+imgblur=cv2.GaussianBlur(img,(7,7),0)                   //blur function
+
+imgcanny=cv2.Canny(img,100,100)                          //canny image
+
+imgdialtion=cv2.dilate(imgcanny,matrix(size),iterations=size)              // increasing the thickness of canny image
+
+imgerode=cv2.erode(img,matrix(size),iterations=size)                       //decreasing the thickness of canny image
+
+
+imgresize=cv2.resize(img,(width,height))                                  //resizing 
+
+imgcrop=img[0:height,0:width]                                             //cropping
+
+
+img=np.zeros((512,512,3),np.uint8)
+cv2.line(img,((0,0),(100,200)),(255,0,0),3)                             //adding line o the matrix from (0,0) to (100,200) of thickness 3
+
+
+cv2.rectangle(img,(0,0),(200,200),(0,255,0),2)                         // adding rectangle o the matrix from (0,0) to (200,200) of thickness 2
+
+cv2.circle(img,(450,450),90,(0,255,0),3)                               // adding circle to the matrix at centre (450,450) of radius 90 nd thickness 3
+
+
+cv2.putText(img,"UR TEXT",(300,400),cv2.FONT_HERSHEY_COMPLEX,1,(0,160,0),3)          // adding text 
